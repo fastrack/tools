@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<svg width="640" height="480.00000000000006" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+  <radialGradient r="0.5" cy="0.5" cx="0.5" spreadMethod="pad" id="svg_2">
+   <stop offset="0.541667" stop-color="#006600"/>
+   <stop offset="0.967448" stop-color="#00ff00"/>
+  </radialGradient>
+ </defs>
+ <title>NoSource</title>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_6" height="480" width="640" y="1" x="2" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="url(#svg_2)"/>
+  <text fill="#000000" stroke="#000000" stroke-width="0" x="764.300734" y="471.151078" id="svg_3" font-size="24" font-family="serif" text-anchor="middle" xml:space="preserve" transform="matrix(10.225, 0, 0, 5.14815, -7490.7, -2140.44)">???</text>
+  <text fill="#000000" stroke="#000000" stroke-width="0" x="693.142558" y="510.600133" id="svg_3" font-size="24" font-family="serif" text-anchor="middle" xml:space="preserve" transform="matrix(2.70024, 0, 0, 4.63818, -1546.7, -1914.59)">No source file found</text>
+ </g>
+</svg>
