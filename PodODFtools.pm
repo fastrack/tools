@@ -4,7 +4,7 @@ package PodODFtools ;
 ### File	: PodODFtools.pm
 ### Author	: Ch.Minc
 ### Purpose	: set of tools translatePod into ODF, PDF , "HTML show"
-### Version	: 1.1 06/06/2014 21:40:36
+### Version	: 1.12 17/06/2014 21:40:36
 ### copyright GNU license
 ### utf-8 àéè
 ####-----------------------------------
@@ -33,7 +33,7 @@ use HTML::Entities;
 use Time::HiRes qw (gettimeofday tv_interval usleep); 
 use POSIX qw(strftime);
 
-our ($VERSION) = '$Revision: 1.1 $' =~ m{ \$Revision: \s+ (\S+) }xms;
+our ($VERSION) = '$Revision: 1.12 $' =~ m{ \$Revision: \s+ (\S+) }xms;
 
 # model file required for gmlf
 has 'model' => (is => 'rw', isa => 'Str', required => 1);
@@ -52,8 +52,8 @@ has 'made_for' =>(is => 'rw', isa => 'Str', required => 0,default =>'gmlf') ;
 # this parameter resize the picture in ODF file by scaling them down
 has 'scaledown' =>(is => 'rw', isa => 'Int', required => 0,default =>4) ;
 # these parameters told where to find libreoffice/openoffice used for generating pdf files from odf ones
-has 'soffice_dir' =>(is => 'rw', isa => 'ArrayRef[Str]', required => 0,default =>sub{["C:", 'Program Files', 'LibreOffice 4', 'program'] ;});
-has 'soffice_exe' =>(is => 'rw', isa => 'Str', required => 0,default =>"swriter.exe");
+has 'soffice_dir' =>(is => 'rw', isa => 'ArrayRef[Str]', required => 1,default =>sub{["C:", 'Program Files', 'LibreOffice 4', 'program'] ;});
+has 'soffice_exe' =>(is => 'rw', isa => 'Str', required => 1,default =>"swriter.exe");
 
 # these regex  used to get the attributes of pictures in pod with the tag "=for html" 
 has 'regex_for_html_style'=>(is=>'rw',
@@ -193,7 +193,7 @@ has 'show' =>(is=>'rw',
 
 sub _show {
 	my $self=shift ;
-	my $new=shift // $self->{showfile};
+	$self->{showfile}=shift // $self->{showfile};
 	my $old=shift ;
 	&post_show($self) ;
 	return ;
@@ -889,6 +889,7 @@ say "START of $0 - show" ;
 my $pod=$self->{pod} ;
 # fichier de sortie
 my $filename=$self->{showfile} ; # path . filename . number . html
+
 my $z_ecran_w=$self->{screen_w} ;
 my $z_ecran_h=$self->{screen_h} ;
 
